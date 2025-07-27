@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - StreetKart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 1s ease-in;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      width: 320px;
+      text-align: center;
+      animation: slideUp 0.6s ease-in-out;
+    }
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+      transform: scale(1.02);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Vendor Login</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="text" id="phone" placeholder="Phone Number">
+    <input type="text" id="shop" placeholder="Shop Name">
+    <input type="text" id="location" placeholder="Shop Location">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const shop = document.getElementById('shop').value.trim();
+      const location = document.getElementById('location').value.trim();
+
+      if (!name || !phone || !shop || !location) {
+        return alert("Please fill all fields.");
+      }
+
+      const vendor = { name, phone, shop, location };
+      localStorage.setItem("vendorProfile", JSON.stringify(vendor));
+      window.location.href = "dashboard.html";
+    }
+  </script>
+</body>
+</html>

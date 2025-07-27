@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StreetKart India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      transition: background 0.3s ease;
+    }
+
+    nav {
+      background: linear-gradient(to right, #141E30, #243B55);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left {
+      font-size: 1.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-left img {
+      height: 55px;
+    }
+
+    .nav-right button {
+      margin-left: 12px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff6600;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .nav-right button:hover {
+      background-color: #e65800;
+    }
+
+    .hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #e2d133,#ad9e0f, #948411);
+  overflow: hidden;
+}
+
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #555;
+    }
+
+    .section,
+    .market-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .market-section {
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1603098851952-dbe4c4dfaa0b') no-repeat center center/cover;
+      color: #fff;
+      transition: background 0.5s ease-in-out;
+    }
+
+    .market-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    .market-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .market-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #222;
+      border-radius: 12px;
+      width: 260px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .market-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .market-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .market-card p {
+      font-size: 0.95rem;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      padding: 30px;
+      transition: transform 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonial-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffcc00;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <img src="https://cdn-icons-png.flaticon.com/512/3055/3055945.png" alt="StreetKart Logo">
+    StreetKart India
+  </div>
+
+  <div class="nav-right">
+    <button onclick="location.href='login.html'">Login</button>
+    <button onclick="location.href='liveMarket.html'">Live Market</button>
+    <button onclick="location.href='community.html'">Community</button>
+    <button onclick="location.href='budget.html'">Budget</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>From Streets to Screens — Empowering India's Local Vendors</h1>
+  <p>Our platform connects small vendors to a digital marketplace where they can trade, grow, and thrive together.</p>
+</section>
+
+<section class="market-section">
+  <h2>How StreetKart Helps You</h2>
+  <div class="market-list">
+    <div class="market-card">
+      <h4>📦 Real-Time Inventory Exchange</h4>
+      <p>Request or offer raw ingredients instantly and match with vendors in your region.</p>
+    </div>
+    <div class="market-card">
+      <h4>📊 Smart Budget Planner</h4>
+      <p>Track your weekly expenses and plan purchases efficiently to avoid wastage.</p>
+    </div>
+    <div class="market-card">
+      <h4>🤝 Group Buying Power</h4>
+      <p>Join hands with nearby vendors to bulk purchase items at wholesale prices.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What Our Vendors Say</h2>
+  <div class="testimonials" id="testimonial-box">
+    <div class="testimonial-card">
+      <img src="https://www.indiaspend.com/h-upload/2021/09/14/553027-updated-only-11-of-vulnerable-street-vendors-benefitted-from-pm-credit-scheme-survey.jpg" alt="vendor1">
+      <h4>Ram Sharma, Gandhi Market</h4>
+      <p>"I never thought my business could grow like this. Thank you for bringing us online!"</p>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKJ_vbg8rmYe0P12od2tXRHJ5QXj7xXg4K9XfJGurV9lHJE-f682vkAKLlxX5tTclWICY&usqp=CAU" alt="vendor2">
+      <h4>Vijay Kumar, Chandni Chowk</h4>
+      <p>"It’s so easy to offer and request ingredients now. This app is a blessing."</p>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://t4.ftcdn.net/jpg/09/64/17/51/360_F_964175105_Tpsm9Zxzht0UcvSDBggdsqCT9Q0TQtKw.jpg" alt="vendor3">
+      <h4>Ali khadar, Dadar West</h4>
+      <p>"I found new partners and saved money through shared buying. Highly recommend!"</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <a href="#">About</a> |
+    <a href="#">Contact</a> |
+    <a href="#">Privacy Policy</a>
+  </p>
+  <p>&copy; 2025 StreetKart India. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -7,35 +7,35 @@ Tech Stack
 
 Frontend
 
-HTML5: Markup structure for static and dynamic content
+1.HTML5: Markup structure for static and dynamic content
 
-CSS3: Custom styling with responsive layouts and mobile-first design
+2.CSS3: Custom styling with responsive layouts and mobile-first design
 
-JavaScript (ES6+): Core functionality, client-side validation, dynamic UI
+3.JavaScript (ES6+): Core functionality, client-side validation, dynamic UI
 
-LocalStorage: For basic data persistence like login state and order details
+4.LocalStorage: For basic data persistence like login state and order details
 
 No frameworks or libraries used to keep the site lightweight and beginner-friendly
 
 Key Features
 
-Vendor Registration & Login: Lightweight local login system (stored in browser memory)
+1.Vendor Registration & Login: Lightweight local login system (stored in browser memory)
 
-Product Discovery: Browse items by category like vegetables, dairy, cleaning supplies, etc.
+2.Product Discovery: Browse items by category like vegetables, dairy, cleaning supplies, etc.
 
-Community Section: Vendors can post questions, requests, or ideas (with delete option)
+3.Community Section: Vendors can post questions, requests, or ideas (with delete option)
 
-Order History Page: Tracks vendor orders with status badges (Pending, Delivered, Cancelled)
+4.Order History Page: Tracks vendor orders with status badges (Pending, Delivered, Cancelled)
 
-Monthly Budget Tracker: Helps vendors track expenses and set monthly limits
+5.Monthly Budget Tracker: Helps vendors track expenses and set monthly limits
 
 Deployment
 
-Hosted on GitHub Pages for easy public access
+1.Hosted on GitHub Pages for easy public access
 
-Minimal dependencies for quick load time and offline compatibility (PWA planned)
+2.Minimal dependencies for quick load time and offline compatibility (PWA planned)
 
-Client-side only — no sensitive data storage
+3.Client-side only — no sensitive data storage
 
 All data stored locally for demonstration
 

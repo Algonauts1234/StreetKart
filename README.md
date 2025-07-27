@@ -1,4 +1,4 @@
-#StreetKart : From Streets to Screens -Empowering India's Local Vendors
+# StreetKart : From Streets to Screens -Empowering India's Local Vendors
 Overview
 
 StreetKart is a lightweight web platform designed using HTML, CSS, and JavaScript to bridge the gap between Indian street food vendors and trusted raw material suppliers. Vendors can browse products, place orders, and manage their profile, while suppliers can list items and track demand. The system emphasizes accessibility, affordability, and hygiene awareness for small-scale food businesses.

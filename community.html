@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StreetKart Community Forum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 30px;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(to right, #89cee9, #4dc1e1, #0a85bd);
+      background-size: 30px 30px, 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffffdd;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+      color: #00334e;
+      animation: headingRise 0.9s ease-in-out;
+    }
+
+    @keyframes headingRise {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #b3d7e8;
+      font-size: 1rem;
+      background: #f0faff;
+      color: #333;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+    }
+
+    button {
+      padding: 12px 24px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .post {
+      background: #f8fbff;
+      padding: 18px;
+      border-left: 5px solid #007bff;
+      margin-top: 20px;
+      border-radius: 10px;
+      position: relative;
+      animation: fadeIn 0.5s ease;
+      transition: transform 0.2s;
+    }
+
+    .post:hover {
+      transform: translateY(-2px);
+    }
+
+    .post h4 {
+      margin: 0 0 5px;
+      color: #1d3557;
+    }
+
+    .post small {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .post p {
+      margin-top: 10px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: background 0.3s ease;
+    }
+
+    .delete-btn:hover {
+      background: #c82333;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #eee;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      input, textarea, button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>👥 StreetKart Community Forum</h2>
+
+    <div>
+      <input type="text" id="author" placeholder="Your Name" />
+      <input type="text" id="title" placeholder="Post Title" />
+      <textarea id="message" placeholder="What's on your mind?" rows="4"></textarea>
+      <button onclick="addPost()">Post</button>
+    </div>
+
+    <hr />
+
+    <div id="communityPosts">
+      <!-- Posts will appear here -->
+    </div>
+  </div>
+
+  <script>
+    function loadPosts() {
+      const posts = JSON.parse(localStorage.getItem("communityPosts") || "[]");
+      const container = document.getElementById("communityPosts");
+      container.innerHTML = "";
+
+      posts.reverse().forEach((post, index) => {
+        const postDiv = document.createElement("div");
+        postDiv.className = "post";
+        postDiv.innerHTML = `
+          <h4>${post.title}</h4>
+          <small>👤 ${post.author} | 🕒 ${post.time}</small>
+          <p>${post.message}</p>
+          <button class="delete-btn" onclick="deletePost(${posts.length - 1 - index})">🗑 Delete</button>
+        `;
+        container.appendChild(postDiv);
+      });
+    }
+
+    function addPost() {
+      const author = document.getElementById("author").value.trim();
+      const title = document.getElementById("title").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!author || !title || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const post = {
+        author,
+        title,
+        message,
+        time: new Date().toLocaleString()
+      };
+
+      const posts = JSON.parse(localStorage.getItem("communityPosts") || "[]");
+      posts.push(post);
+      localStorage.setItem("communityPosts", JSON.stringify(posts));
+
+      document.getElementById("author").value = "";
+      document.getElementById("title").value = "";
+      document.getElementById("message").value = "";
+
+      loadPosts();
+    }
+
+    function deletePost(indexToDelete) {
+      let posts = JSON.parse(localStorage.getItem("communityPosts") || "[]");
+      posts.splice(indexToDelete, 1);
+      localStorage.setItem("communityPosts", JSON.stringify(posts));
+      loadPosts();
+    }
+
+    window.onload = loadPosts;
+  </script>
+</body>
+</html>
